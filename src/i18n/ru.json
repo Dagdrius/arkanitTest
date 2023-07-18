@@ -1,0 +1,23 @@
+{
+    "logo":"Логотип (Высота 40px, длина до 300px)",
+    "firstTitleText": "Введите номер телефона",
+    "firstSubTitleText": "Чтобы войти или зарегистрироваться",
+    "secondTitleText": "Введите код",
+    "secondSubTitleText": "Отправлен по номеру",
+    "countryLabel": "Страна",
+    "noDataText": "Ничего не найдено",
+    "searchPlaceholder": "Поиск",
+    "phoneLabel": "Номер телефона",
+    "buttonText": "Далее",
+    "phoneError": "Неверный формат номера",
+    "termsText": "Условия", 
+    "confidentialityText": "Конфиденциальность",
+    "codeLabel": "Способ получения кода",
+    "codeInputLabel": "Введите код",
+    "backButtonText": "Назад",
+    "sendButtonAPIText": "Отправить"
+
+
+
+
+}

@@ -1,0 +1,20 @@
+{
+    "logo":"Logo (Height 40px, max-width 300px)",
+    "firstTitleText": "Enter your phone number",
+    "firstSubTitleText": "To log in or register",
+    "secondTitleText": "Enter the code",
+    "secondSubTitleText": "Sent to number",
+    "countryLabel": "Country",
+    "noDataText": "No data",
+    "searchPlaceholder": "Search",
+    "phoneLabel": "Phone number",
+    "buttonText": "Next",
+    "phoneError": "Not a valid phone number",
+    "termsText": "Terms", 
+    "confidentialityText": "Confidentiality",
+    "codeLabel": "Ways to get the code",
+    "codeInputLabel": "Enter the code",
+    "backButtonText": "Back",
+    "sendButtonAPIText": "Send"
+
+}
