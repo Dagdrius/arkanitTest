@@ -132,7 +132,7 @@ const selectedCountry = ref("");
 const sessionID = ref("");
 const submitNumForm = async () => {
   console.log(
-    "Должен переходить на следующий этап формы, но апи не работает. Чтобы перейти вручную закоментируй 138-139 строку в PhoneFormStep.vue"
+    "Должен переходить на следующий этап формы, но корсы отвалились, или что то с api. Чтобы перейти вручную закоментируй 138-139 строку в PhoneFormStep.vue"
   );
 
   const createRes = await create(phoneNum.value);
