@@ -1,4 +1,4 @@
-import { log } from "console"
+
 
 const baseUrl = "https://api.dev.kod.mobi/api/v1/message"
 

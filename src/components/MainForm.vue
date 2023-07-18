@@ -7,14 +7,14 @@
     width="100%"
   >
     <v-card
-      class="d-flex flex-column rounded-lg sx-card"
+      class="d-flex flex-column rounded-lg sx_card"
       width="500px"
       height="570px"
     >
       <div class="alginclass">
-        <div class="sx-upperCard">
-          <v-sheet class="sx-logo">{{ $t("logo") }} </v-sheet>
-          <v-card-title class="sx-title">{{
+        <div class="sx_upperCard">
+          <v-sheet class="sx_logo">{{ $t("logo") }} </v-sheet>
+          <v-card-title class="sx_title">{{
             veryFirstForm ? $t("firstTitleText") : $t("secondTitleText")
           }}</v-card-title>
 
@@ -26,7 +26,7 @@
             }}
           </v-card-subtitle>
         </div>
-        <div class="sx-formClass">
+        <div class="sx_formClass">
           <template v-if="veryFirstForm">
             <PhoneFormStep @form-submitted="firstFormSubed" />
           </template>
@@ -56,8 +56,6 @@ let sessionID;
 const { t } = useI18n({ useScope: "global" });
 
 const backButtonClicked = (emittedNotify: boolean) => {
-  console.log(`back button emitted ${emittedNotify}`);
-
   veryFirstForm.value = emittedNotify;
 };
 
@@ -66,9 +64,9 @@ const i18nformtest = formNumber.value;
 
 function firstFormSubed(emittedNum: string, emittedID: string) {
   formNumber.value = emittedNum;
+
   sessionID = emittedID;
   veryFirstForm.value = !veryFirstForm.value;
-  console.log(sessionID);
 }
 
 const veryFirstForm = ref(true);
@@ -82,14 +80,14 @@ const veryFirstForm = ref(true);
   align-items: center;
   gap: 30px;
 }
-.sx-card {
+.sx_card {
   border-radius: 0.5rem !important;
   border: 1px solid;
   border-color: #dfdfdf;
   padding: 50px 30px 24px 30px;
 }
 
-.sx-upperCard {
+.sx_upperCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,14 +95,14 @@ const veryFirstForm = ref(true);
   align-self: stretch;
 }
 
-.sx-formClass {
+.sx_formClass {
   width: 100%;
 }
 .sx_bottomCard {
   color: #666 !important;
   padding-top: 50px;
 }
-.sx-logo {
+.sx_logo {
   background: #f8f8f8;
   height: 40px;
   max-width: 300px;
@@ -117,7 +115,7 @@ const veryFirstForm = ref(true);
   color: #989898;
   padding: 12px 20px;
 }
-.sx-title {
+.sx_title {
   font-family: Roboto;
   font-size: 2rem;
   font-style: normal;

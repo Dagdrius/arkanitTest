@@ -39,7 +39,7 @@
           style="color: #9e9e9e; text-align: center; padding: 16px 0"
           class="sx_searchResults"
         >
-          {{ noData }}
+          {{ $t("noDataText") }}
         </p>
       </template>
       <template #selection="{ item }">
@@ -128,16 +128,16 @@ const emit = defineEmits<{
 const phoneNum = ref();
 watch(selected, () => (phoneNum.value = selected.value.dial_code));
 
-console.log(phoneCodes);
-
 const selectedCountry = ref("");
 const sessionID = ref("");
 const submitNumForm = async () => {
-  console.log(phoneNum.value);
+  console.log(
+    "Должен переходить на следующий этап формы, но апи не работает. Чтобы перейти вручную закоментируй 138-139 строку в PhoneFormStep.vue"
+  );
 
-  // const createRes = await create(phoneNum.value);
-  // sessionID.value = createRes.data.session_id;
-  // console.log(sessionID.value);
+  const createRes = await create(phoneNum.value);
+  sessionID.value = createRes.data.session_id;
+
   emit("formSubmitted", phoneNum.value, sessionID.value);
 };
 
@@ -150,8 +150,6 @@ const searchCountry = () => {
     return item.name.toLowerCase().indexOf(searchTerm.value.toLowerCase()) > -1;
   });
 };
-
-const noData = "Ничего не найдено";
 </script>
 
 <style scoped>
