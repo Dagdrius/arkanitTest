@@ -156,9 +156,6 @@ const noData = "Ничего не найдено";
 </script>
 
 <style scoped>
-.sx_textAlignClass {
-  text-align: left;
-}
 .sx_formButton {
   color: #fff;
   font-family: Roboto;
@@ -167,14 +164,6 @@ const noData = "Ничего не найдено";
   font-weight: 500;
   line-height: 36px;
   text-transform: none;
-}
-.v-text-field .v-input__control .v-input__slot {
-  min-height: 60px !important;
-  display: flex !important;
-  align-items: center !important;
-}
-.v-field__input {
-  min-height: 100px !important;
 }
 .sx_formAction {
   padding: 0 !important;

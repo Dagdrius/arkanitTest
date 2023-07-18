@@ -108,17 +108,11 @@ const authTypes = ref(["WhatsApp", "Telegram", "Viber", "SMS"]);
 const rules = [
   async (value: string) => {
     if (value) {
-      // Perform your custom validation checks here
-      // Example: Check if the response status is 410
       if (checkError.value && checkError.value === "410") {
         return "Your password is invalid :(";
       }
-
-      // Return true if the validation passes
       return true;
     }
-
-    // Return an error message if the validation fails
     return "You must enter a first name.";
   },
 ];
