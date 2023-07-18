@@ -3,7 +3,7 @@
     "firstTitleText": "Введите номер телефона",
     "firstSubTitleText": "Чтобы войти или зарегистрироваться",
     "secondTitleText": "Введите код",
-    "secondSubTitleText": "Отправлен по номеру",
+    "secondSubTitleText": "Отправлен по номеру {phoneNum}",
     "countryLabel": "Страна",
     "noDataText": "Ничего не найдено",
     "searchPlaceholder": "Поиск",
@@ -16,5 +16,4 @@
     "codeInputLabel": "Введите код",
     "backButtonText": "Назад",
     "sendButtonAPIText": "Отправить"
-
 }

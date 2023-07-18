@@ -20,7 +20,9 @@
 
           <v-card-subtitle>
             {{
-              veryFirstForm ? $t("firstSubTitleText") : $t("secondSubTitleText")
+              veryFirstForm
+                ? $t("firstSubTitleText")
+                : $t("secondSubTitleText", { phoneNum: i18nformtest })
             }}
           </v-card-subtitle>
         </div>
@@ -59,7 +61,11 @@ const backButtonClicked = (emittedNotify: boolean) => {
   veryFirstForm.value = emittedNotify;
 };
 
+const formNumber = ref("+79198638895");
+const i18nformtest = formNumber.value;
+
 function firstFormSubed(emittedNum: string, emittedID: string) {
+  formNumber.value = emittedNum;
   sessionID = emittedID;
   veryFirstForm.value = !veryFirstForm.value;
   console.log(sessionID);

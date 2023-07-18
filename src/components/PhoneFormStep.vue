@@ -67,7 +67,6 @@
         </v-list-item>
       </template>
     </v-select>
-
     <v-text-field
       density="comfortable"
       v-model="phoneNum"

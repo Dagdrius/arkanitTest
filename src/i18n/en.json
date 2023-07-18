@@ -3,7 +3,7 @@
     "firstTitleText": "Enter your phone number",
     "firstSubTitleText": "To log in or register",
     "secondTitleText": "Enter the code",
-    "secondSubTitleText": "Sent to number",
+    "secondSubTitleText": "Sent to number {phoneNum}",
     "countryLabel": "Country",
     "noDataText": "No data",
     "searchPlaceholder": "Search",
