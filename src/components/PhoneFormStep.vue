@@ -116,8 +116,9 @@ const { t: $t } = useI18n({ useScope: "global" });
 const phoneError = $t("phoneError");
 const rules = [
   (value: string) => {
-    if (phone(value).isValid) return true;
-    return $t("phoneError");
+    if (value.length >= 12) {
+      return phone(value).isValid ? true : $t("phoneError");
+    }
   },
 ];
 
@@ -131,12 +132,9 @@ watch(selected, () => (phoneNum.value = selected.value.dial_code));
 const selectedCountry = ref("");
 const sessionID = ref("");
 const submitNumForm = async () => {
-  console.log(
-    "Должен переходить на следующий этап формы, но корсы отвалились, или что то с api. Чтобы перейти вручную закоментируй 138-139 строку в PhoneFormStep.vue"
-  );
-
   const createRes = await create(phoneNum.value);
   sessionID.value = createRes.data.session_id;
+  console.log(createRes.data.session_id);
 
   emit("formSubmitted", phoneNum.value, sessionID.value);
 };

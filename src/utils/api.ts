@@ -1,6 +1,6 @@
 
 
-const baseUrl = "https://api.dev.kod.mobi/api/v1/message"
+const baseUrl = "https://api2.kod.mobi/api/v1/message"
 
 const commonHeaders = {
   "x-api-key": "09459085-5327-4ae9-85a8-214b7755fc2a",
@@ -17,7 +17,7 @@ const create = async (phone) => {
                                     method: "GET",
                                     headers: commonHeaders
                                   })
-                                  console.log(response)
+                                 
     const data = response.json()
     return data
   } catch (err) {
@@ -26,18 +26,26 @@ const create = async (phone) => {
 }
 
 const send = async (session, type) => {
+  // eslint-disable-next-line no-useless-catch
   try {
-    const response = await fetch(`${baseUrl}/send?session_id=${session}&type=${type}`,
-                                  {
-                                    method: "GET",
-                                    headers: commonHeaders
-                                  })
-    const data = response.json()
-    return data
+    const response = await fetch(`${baseUrl}/send?session_id=${session}&type=${type}`, {
+      method: "GET",
+      headers: commonHeaders
+    });
+
+    const data = await response.json();
+
+    
+    if (data.error) {
+      throw new Error(data.error); 
+    }
+
+    return data; 
   } catch (err) {
-    console.log(err)
+   
+    throw err;
   }
-}
+};
 
 const check = async (session, code) => {
   console.log(code);

@@ -15,6 +15,9 @@
     "codeLabel": "Ways to get the code",
     "codeInputLabel": "Enter the code",
     "backButtonText": "Back",
-    "sendButtonAPIText": "Send"
-
+    "sendButtonAPIText": "Send",
+    "telegramTitleText": "Telegram",
+    "telegramSubtitleText": "To use this communication channel, you need to register in the bot",
+    "telegramNotAuthSubtitleText": "You are still not autorized in to the bot, please try again"
 }
+

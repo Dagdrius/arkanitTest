@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <MainForm />
+      <Main />
     </v-main>
   </v-app>
 </template>
 
 <script setup lang="ts">
-import MainForm from "@/components/MainForm.vue";
+import Main from "@/components/Main.vue";
 </script>
 
 <style>

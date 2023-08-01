@@ -15,6 +15,7 @@
       :items="authTypes"
       variant="outlined"
       menu-icon="mdi-chevron-down"
+      :disabled="disableSelect"
     >
       <template #item="{ item, props }">
         <v-list-item v-bind="props" :title="undefined">
@@ -85,7 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { check, send } from "../utils/api";
 import WhatsApp from "./icons/WhatsApp.vue";
 import Telegram from "./icons/Telegram.vue";
@@ -95,13 +96,19 @@ import BackIcon from "./icons/BackIcon.vue";
 
 const props = defineProps({
   propSessionID: String,
+  propNumber: String,
 });
+const emit = defineEmits<{
+  (e: "backButtonClicked", notifier: boolean): void;
+  (e: "telgramNotAuth", telegramNotify: boolean): void;
+}>();
+const disableSelect = ref(false);
 
 // eslint-disable-next-line vue/no-setup-props-destructure
 const sessionID = ref("");
 // eslint-disable-next-line vue/no-setup-props-destructure
 sessionID.value = props.propSessionID;
-console.log(`second form ${sessionID.value}`);
+
 const phoneCode = ref("");
 
 const authTypes = ref(["WhatsApp", "Telegram", "Viber", "SMS"]);
@@ -113,27 +120,19 @@ const rules = [
       }
       return true;
     }
-    return "You must enter a first name.";
+    return "Код неверен";
   },
 ];
 
 const checkError = ref("");
-const emit = defineEmits<{
-  (e: "backButtonClicked", notifier: boolean): void;
-}>();
 
 const notify = ref(true);
 
 const backButton = () => {
-  console.log(notify.value);
-
   emit("backButtonClicked", notify.value);
 };
 
 const submitCodeForm = async () => {
-  console.log(typeof phoneCode.value);
-  console.log(sessionID.value);
-
   try {
     const checkRes = await check(sessionID.value, phoneCode.value);
     console.log(checkRes.data);
@@ -142,28 +141,49 @@ const submitCodeForm = async () => {
   }
 };
 const showButton = ref(true);
-const countdown = ref(30);
+const countdown = ref(10);
 
 const startCountdown = () => {
+  disableSelect.value = !disableSelect.value;
   let timer = setInterval(() => {
     if (countdown.value > 0) {
       countdown.value--;
     } else {
       showButton.value = true;
       clearInterval(timer);
+      disableSelect.value = !disableSelect.value;
     }
   }, 1000);
 };
 
 const sendButtonAPI = async () => {
-  console.log(selectedType.value);
-  const sendRes = await send(sessionID.value, selectedType.value);
-  showButton.value = false;
-  countdown.value = 30;
-  startCountdown();
+  try {
+    const sendRes = await send(
+      sessionID.value,
+      selectedType.value.toLowerCase()
+    );
+
+    // Use the API response data
+    console.log("API response data:", sendRes);
+
+    // Continue with the rest of the logic
+    showButton.value = false;
+    countdown.value = 10;
+    startCountdown();
+  } catch (error) {
+    const notRegistered = "Error: The user is not registered on the channel";
+    if (error == notRegistered) {
+      console.log("Kys");
+      emit("telgramNotAuth", notify.value);
+    }
+  }
 };
 
-const selectedType = ref("");
+const selectedType = ref("WhatsApp");
+
+watch(selectedType, () => {
+  showButton.value = true;
+});
 const icons = { WhatsApp, Telegram, Viber, SMS };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <MainForm />
+  <Main />
 </template>
 
 <script lang="ts" setup>
-import MainForm from "@/components/MainForm.vue";
+import Main from "@/components/Main.vue";
 </script>

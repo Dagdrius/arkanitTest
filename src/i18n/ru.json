@@ -15,5 +15,10 @@
     "codeLabel": "Способ получения кода",
     "codeInputLabel": "Введите код",
     "backButtonText": "Назад",
-    "sendButtonAPIText": "Отправить"
+    "sendButtonAPIText": "Отправить",
+    "telegramTitleText": "Telegram",
+    "telegramSubtitleText": "Для использования данного канала связи вам необходимо зарегистрироваться в боте",
+    "telegramNotAuthSubtitleText": "Вы все еще не авторизированы в боте, пожалуста, повторите попытку",
+    "telegramAuthButton": "Авторизоваться в боте",
+    "telegrammCheckButton": "Проверить статус"
 }
